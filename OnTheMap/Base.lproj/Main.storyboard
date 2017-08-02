@@ -24,15 +24,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4O0-5H-bN6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kawase_Hasui-No_Series-Night_at_the_Pond_Edge_Shinobazu_Pond-00036924-070617-F12" translatesAutoresizingMaskIntoConstraints="NO" id="PTt-jR-SyD">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kawase_Hasui-No_Series-Night_at_the_Pond_Edge_Shinobazu_Pond-00036924-070617-F12" translatesAutoresizingMaskIntoConstraints="NO" id="PTt-jR-SyD">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Login with Udacity" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge0-u6-h4x">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-hb-ElQ">
                                         <rect key="frame" x="0.0" y="95.5" width="375" height="95"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YuN-WL-F4f">
                                         <rect key="frame" x="0.0" y="190.5" width="375" height="95.5"/>
                                         <nil key="textColor"/>
@@ -48,14 +48,23 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf5-PB-YkS">
                                         <rect key="frame" x="0.0" y="381" width="375" height="95.5"/>
                                         <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AoB-71-IgX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBq-t1-QBU">
                                         <rect key="frame" x="0.0" y="476.5" width="375" height="95"/>
                                         <state key="normal" title="Don't have an account?"/>
+                                        <connections>
+                                            <action selector="noAccountButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCJ-mC-VTj"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QC-q9-l2f">
                                         <rect key="frame" x="0.0" y="571.5" width="375" height="95.5"/>
                                         <state key="normal" title="Forgot Password?"/>
+                                        <connections>
+                                            <action selector="forgotPasswordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ire-lE-1Sy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

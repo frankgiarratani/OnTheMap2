@@ -22,6 +22,20 @@ class LoginViewController: UIViewController {
     }
     
 
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        print("Login Button Pressed")
+    }
+    
+    
+    @IBAction func noAccountButtonPressed(_ sender: Any) {
+        print("No Account Button Pressed")
+    }
+    
+    @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
+        print("Forgot Password Button Pressed")
+    }
+    
+    
     /*
     // MARK: - Navigation
 
