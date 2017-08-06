@@ -10,20 +10,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var usernameEntered : UITextField!
+    @IBOutlet weak var passwordEntered : UITextField!
+    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
+    
+    // MARK: Actions
     @IBAction func loginButtonPressed(_ sender: Any) {
         print("Login Button Pressed")
+        print(usernameEntered.text!)
+        print(passwordEntered.text!)
     }
     
     
@@ -34,6 +36,12 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPasswordButtonPressed(_ sender: Any) {
         print("Forgot Password Button Pressed")
     }
+    
+    
+    
+
+    
+
     
     
     /*
