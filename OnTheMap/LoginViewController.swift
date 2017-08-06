@@ -10,20 +10,43 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    
+    // MARK: Properties
+    
+    var appDelegate: AppDelegate!
+    var keyboardOnScreen = false
+    
+    // MARK : Outlets
     @IBOutlet weak var usernameEntered : UITextField!
     @IBOutlet weak var passwordEntered : UITextField!
+    @IBOutlet weak var debugTextLabel : UILabel!
     
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        // get the app delegate
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
     }
     
     
     // MARK: Actions
     @IBAction func loginButtonPressed(_ sender: Any) {
+        
+        //userDidTapView(self)
+        
+        if usernameEntered.text!.isEmpty || passwordEntered.text!.isEmpty {
+            debugTextLabel.text = "Username or Password Empty."
+        } else {
+
+            debugTextLabel.text = "Username and Password are good to go."
+        }
+        
         print("Login Button Pressed")
+        
+        
         print(usernameEntered.text!)
         print(passwordEntered.text!)
     }
