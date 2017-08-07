@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var sharedSession = URLSession.shared
     var requestToken: String? = nil
     var sessionID: String? = nil
+    var accountKey: String? = nil
     var userID: Int? = nil
 
 
