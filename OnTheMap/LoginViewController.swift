@@ -73,7 +73,30 @@ class LoginViewController: UIViewController {
             }
             let range = Range(5..<data!.count)
             let newData = data?.subdata(in: range) /* subset response data! */
-            print(NSString(data: newData!, encoding: String.Encoding.utf8.rawValue)!)
+            //print(NSString(data: newData!, encoding: String.Encoding.utf8.rawValue)!)
+            let parsedUdacityJSON = try! JSONSerialization.jsonObject(with: newData!, options: .allowFragments) as! NSDictionary
+            
+            print("----JSON----")
+            print(parsedUdacityJSON)
+            
+            guard let accountDictionary = parsedUdacityJSON["account"] as? NSDictionary else {
+                print("Cannot find key 'account' in \(parsedUdacityJSON)")
+                return
+            }
+            print("----ACCOUNT DICTIONARY----")
+            print(accountDictionary)
+
+            guard let sessionDictionary = parsedUdacityJSON["session"] as? NSDictionary else {
+                print("Cannot find key 'account' in \(parsedUdacityJSON)")
+                return
+            }
+            print("----SESSION DICTIONARY----")
+            print(sessionDictionary)
+            
+            if let sessionID = sessionDictionary["id"] {
+                print("--sessionID")
+                print(sessionID)
+            }
         }
         task.resume()
     }
