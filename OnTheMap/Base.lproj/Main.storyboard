@@ -24,10 +24,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4O0-5H-bN6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Kawase_Hasui-No_Series-Night_at_the_Pond_Edge_Shinobazu_Pond-00036924-070617-F12" translatesAutoresizingMaskIntoConstraints="NO" id="PTt-jR-SyD">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="川瀬巴水２" translatesAutoresizingMaskIntoConstraints="NO" id="PTt-jR-SyD">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="83.5"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-hb-ElQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ba-hb-ElQ">
                                         <rect key="frame" x="0.0" y="83.5" width="375" height="83.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -95,6 +95,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Kawase_Hasui-No_Series-Night_at_the_Pond_Edge_Shinobazu_Pond-00036924-070617-F12" width="1097" height="704"/>
+        <image name="川瀬巴水２" width="2880" height="1877"/>
     </resources>
 </document>

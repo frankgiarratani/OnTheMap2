@@ -118,6 +118,7 @@
 				TargetAttributes = {
 					0DF4E9F71F319FF700FF2C4F = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 788UQ33T3U;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -284,9 +285,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 788UQ33T3U;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMapFrankieGee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -296,9 +298,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 788UQ33T3U;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.udacity.OnTheMapFrankieGee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
