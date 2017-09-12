@@ -106,6 +106,7 @@ class LoginViewController: UIViewController {
             
             self.getUdacityUserData()
         }
+        
         task.resume()
     }
     
@@ -173,11 +174,6 @@ class LoginViewController: UIViewController {
         debugTextLabel.text = "Take me to the password reset page."
     }
     
-    
-    
-
-    
-
     
     
     /*
