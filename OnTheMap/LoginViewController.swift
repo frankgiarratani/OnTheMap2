@@ -10,7 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    
     // MARK: Properties
     
     var appDelegate: AppDelegate!
@@ -30,12 +29,13 @@ class LoginViewController: UIViewController {
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         
     }
-    
+
     
     // MARK: Actions
     @IBAction func loginButtonPressed(_ sender: Any) {
         
-        //userDidTapView(self)
+        UdacityClient.sharedInstance().printMe()
+        
         
         if usernameEntered.text!.isEmpty || passwordEntered.text!.isEmpty {
             debugTextLabel.text = "Username or Password Empty."
@@ -45,10 +45,6 @@ class LoginViewController: UIViewController {
         }
         
         print("Login Button Pressed")
-        
-        
-        //print(usernameEntered.text!)
-        //print(passwordEntered.text!)
         
         var postRequest = "{\"udacity\": {\"username\": \""
         postRequest.append(usernameEntered.text!)
