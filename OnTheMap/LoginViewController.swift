@@ -16,8 +16,8 @@ class LoginViewController: UIViewController {
     var keyboardOnScreen = false
     
     // MARK : Outlets
-    @IBOutlet weak var usernameEntered : UITextField!
-    @IBOutlet weak var passwordEntered : UITextField!
+    @IBOutlet weak var usernameTextfield : UITextField!
+    @IBOutlet weak var passwordTextfield : UITextField!
     @IBOutlet weak var debugTextLabel : UILabel!
     
     // MARK: Life Cycle
@@ -34,22 +34,21 @@ class LoginViewController: UIViewController {
     // MARK: Actions
     @IBAction func loginButtonPressed(_ sender: Any) {
         
-        UdacityClient.sharedInstance().printMe()
-        
-        
-        if usernameEntered.text!.isEmpty || passwordEntered.text!.isEmpty {
+        if usernameTextfield.text!.isEmpty || passwordTextfield.text!.isEmpty {
             debugTextLabel.text = "Username or Password Empty."
         } else {
-
             debugTextLabel.text = "Username and Password are good to go."
         }
         
         print("Login Button Pressed")
         
+        UdacityClient.sharedInstance().authenticateUser(username: usernameTextfield.text!, password: passwordTextfield.text!)
+
+        
         var postRequest = "{\"udacity\": {\"username\": \""
-        postRequest.append(usernameEntered.text!)
+        postRequest.append(usernameTextfield.text!)
         postRequest.append("\", \"password\": \"")
-        postRequest.append(passwordEntered.text!)
+        postRequest.append(passwordTextfield.text!)
         postRequest.append("\"}}")
         
         print("POST" + postRequest)

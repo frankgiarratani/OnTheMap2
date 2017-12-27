@@ -25,9 +25,17 @@ class UdacityClient : NSObject {
     override init() {
         super.init()
     }
-    
-    func printMe() -> Void {
-        print("me")
+        
+    func authenticateUser(username: String, password: String) -> Void {
+        print("------------------------------")
+        print("------------------------------")
+        print("------------------------------")
+        print("USERNAME: " + username)
+        print("PASSWORD: " + password)
+        print("------------------------------")
+        print("------------------------------")
+        print("------------------------------")
+
     }
     
     class func sharedInstance() -> UdacityClient {
