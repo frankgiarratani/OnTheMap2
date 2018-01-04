@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
     var sharedSession = URLSession.shared
     var requestToken: String? = nil
     var sessionID: String? = nil
