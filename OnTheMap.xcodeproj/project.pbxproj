@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D4A4A911FE4FF710006DC84 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4A4A901FE4FF710006DC84 /* UdacityClient.swift */; };
 		0D4A4A961FE507D40006DC84 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4A4A951FE507D40006DC84 /* GCD.swift */; };
+		0DE210E71FFEF85D00863CF1 /* UserAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE210E61FFEF85D00863CF1 /* UserAlert.swift */; };
 		0DF4E9FC1F319FF800FF2C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF4E9FB1F319FF800FF2C4F /* AppDelegate.swift */; };
 		0DF4EA011F319FF800FF2C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DF4E9FF1F319FF800FF2C4F /* Main.storyboard */; };
 		0DF4EA031F319FF800FF2C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DF4EA021F319FF800FF2C4F /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		0D4A4A901FE4FF710006DC84 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		0D4A4A951FE507D40006DC84 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		0DE210E61FFEF85D00863CF1 /* UserAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlert.swift; sourceTree = "<group>"; };
 		0DF4E9F81F319FF800FF2C4F /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DF4E9FB1F319FF800FF2C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DF4EA001F319FF800FF2C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				0DF4E9FB1F319FF800FF2C4F /* AppDelegate.swift */,
+				0DE210E61FFEF85D00863CF1 /* UserAlert.swift */,
 				0D4A4A951FE507D40006DC84 /* GCD.swift */,
 				0DF4E9FF1F319FF800FF2C4F /* Main.storyboard */,
 				0DF4EA021F319FF800FF2C4F /* Assets.xcassets */,
@@ -170,6 +173,7 @@
 			files = (
 				0D4A4A961FE507D40006DC84 /* GCD.swift in Sources */,
 				0D4A4A911FE4FF710006DC84 /* UdacityClient.swift in Sources */,
+				0DE210E71FFEF85D00863CF1 /* UserAlert.swift in Sources */,
 				0DF4EA0E1F31A10F00FF2C4F /* LoginViewController.swift in Sources */,
 				0DF4E9FC1F319FF800FF2C4F /* AppDelegate.swift in Sources */,
 			);

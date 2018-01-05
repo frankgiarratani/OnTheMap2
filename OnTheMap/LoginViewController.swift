@@ -35,10 +35,11 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         
         if usernameTextfield.text!.isEmpty || passwordTextfield.text!.isEmpty {
-            debugTextLabel.text = "Username or Password Empty."
+            //debugTextLabel.text = "Username or Password Empty."
+            UserAlert.popUpAlert(view: self, message: "Username or password empty")
         }
         else {
-            debugTextLabel.text = "Username and Password are good to go."
+            debugTextLabel.text = " 🔐 Authenticating..."
             UdacityClient.sharedInstance().authenticateUser(username: usernameTextfield.text!, password: passwordTextfield.text!, completionHandlerForAuthenticateUser: { (success, errorString) in
                 
                 if let errorString = errorString {
