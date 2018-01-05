@@ -26,8 +26,11 @@ class UdacityClient : NSObject {
         super.init()
         appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
+    
+    // MARK: Completion Handler typealias
+    typealias CompletionHandler = (_ result: AnyObject?, _ error: NSError?) -> Void
         
-    func authenticateUser(username: String, password: String, completionHandlerForAuthenticateUser: @escaping (_ success: Bool, _ errorString: String?) -> Void) {
+    func authenticateUser(username: String, password: String, completionHandler: CompletionHandler) {
         
         print("- - - - - - - - - - - - - - - - - - - - - -")
         print("authenticateUser running with following username and password")
@@ -35,14 +38,21 @@ class UdacityClient : NSObject {
         print("PASSWORD: " + password)
         print("- - - - - - - - - - - - - - - - - - - - - -")
 
-        taskForPOSTSession(username: username, password: password)
+        taskForPOST(username: username, password: password) {
+            (result, error) -> Void in
+            if let error = error {
+                print("###Error: \(error.localizedDescription)")
+            } else {
+                print("###Request Token: \(result!)")
+            }
+        }
         
     }
     
-    private func taskForPOSTSession(username: String, password: String) {
+    func taskForPOST(username: String, password: String, completionHandler: @escaping CompletionHandler) {
 
         print("- - - - - - - - - - - - - - - - - - - - - -")
-        print("taskForPOSTSession started")
+        print("taskForPOST started")
         print("- - - - - - - - - - - - - - - - - - - - - -")
         
         
@@ -66,56 +76,64 @@ class UdacityClient : NSObject {
         //run the task
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest) { data, response, error in
-            if error != nil { // Handle error…
-                print("ATTENTION! WE HAVE AN ERROR")
-                print(error!)
-                return
+            if let error = error { // Handle error…
+                completionHandler(nil, error as NSError)
+            } else if let data = data {
+                self.parseJSON(data: data, completionHandler: completionHandler)
             }
-            let range = Range(5..<data!.count)
-            let newData = data?.subdata(in: range) /* subset response data! */
-            
-            //Parse the JSON dictionary into two dictionaries (account and session)
-            let parsedUdacityJSON = try! JSONSerialization.jsonObject(with: newData!, options: .allowFragments) as! NSDictionary
-            
-            print("- - - - - - - - - - - - - - - - - - - - - -")
-            print ("parsedUdacityJSON")
-            print(parsedUdacityJSON)
-            print("- - - - - - - - - - - - - - - - - - - - - -")
-
-            
-            //Create accountDictionary
-            guard let accountDictionary = parsedUdacityJSON["account"] as? NSDictionary else {
-                print("Cannot find key 'account' in \(parsedUdacityJSON)")
-                return
-            }
-            
-            //Extract accountKey
-            if let accountKey = accountDictionary["key"] {
-                self.appDelegate.accountKey = accountKey as? String
-                print("accountKey:" + self.appDelegate.accountKey!)
-            }
-            
-            //Create sessionDictionary
-            guard let sessionDictionary = parsedUdacityJSON["session"] as? NSDictionary else {
-                print("Cannot find key 'account' in \(parsedUdacityJSON)")
-                return
-            }
-            
-            //Extract sessionID
-            if let sessionID = sessionDictionary["id"] {
-                self.appDelegate.sessionID  = sessionID as? String
-                print("sessionID:" + self.appDelegate.sessionID!)
-            }
-            
-            self.getUdacityUserData()
         }
         
         task.resume()
         print("- - - - - - - - - - - - - - - - - - - - - -")
-        print ("taskForPOSTSession fully executed")
+        print ("taskForPOST fully executed")
         print("- - - - - - - - - - - - - - - - - - - - - -")
     }
     
+    func parseJSON(data: Data, completionHandler: CompletionHandler){
+        print("- - - - - - - - - - - - - - - - - - - - - -")
+        print("parsedUdacityJSON function started")
+        print("- - - - - - - - - - - - - - - - - - - - - -")
+
+        let range = Range(5..<data.count)
+        let newData = data.subdata(in: range) /* subset response data! */
+        
+        //Parse the JSON dictionary into two dictionaries (account and session)
+        let parsedUdacityJSON = try! JSONSerialization.jsonObject(with: newData, options: .allowFragments) as! NSDictionary
+        
+        print("- - - - - - - - - - - - - - - - - - - - - -")
+        print("parsedUdacityJSON")
+        print("- - - - - - - - - - - - - - - - - - - - - -")
+        //print(parsedUdacityJSON)
+        print("- - - - - - - - - - - - - - - - - - - - - -")
+        
+        
+        //Create accountDictionary
+        guard let accountDictionary = parsedUdacityJSON["account"] as? NSDictionary else {
+            print("Cannot find key 'account' in \(parsedUdacityJSON)")
+            return
+        }
+        
+        //Extract accountKey
+        if let accountKey = accountDictionary["key"] {
+            self.appDelegate.accountKey = accountKey as? String
+            print("accountKey:" + self.appDelegate.accountKey!)
+            completionHandler(accountKey as AnyObject, nil)
+        }
+        
+        //Create sessionDictionary
+        guard let sessionDictionary = parsedUdacityJSON["session"] as? NSDictionary else {
+            print("Cannot find key 'account' in \(parsedUdacityJSON)")
+            return
+        }
+        
+        //Extract sessionID
+        if let sessionID = sessionDictionary["id"] {
+            self.appDelegate.sessionID  = sessionID as? String
+            print("sessionID:" + self.appDelegate.sessionID!)
+        }
+        
+        self.getUdacityUserData()
+    }
     
     private func getUdacityUserData() {
         var userinfoURL = "https://www.udacity.com/api/users/"
@@ -136,7 +154,7 @@ class UdacityClient : NSObject {
             
             print("- - - - - - - - - - - - - - - - - - - - - -")
             print("parsedUdacityUserDataJSON")
-            print(parsedUdacityUserDataJSON)
+            //print(parsedUdacityUserDataJSON)
             print("- - - - - - - - - - - - - - - - - - - - - -")
             self.deleteUdacitySession()
             

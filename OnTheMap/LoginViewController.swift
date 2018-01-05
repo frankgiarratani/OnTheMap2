@@ -40,21 +40,26 @@ class LoginViewController: UIViewController {
         }
         else {
             debugTextLabel.text = " 🔐 Authenticating..."
-            UdacityClient.sharedInstance().authenticateUser(username: usernameTextfield.text!, password: passwordTextfield.text!, completionHandlerForAuthenticateUser: { (success, errorString) in
+            UdacityClient.sharedInstance().authenticateUser(username: usernameTextfield.text!, password: passwordTextfield.text!, completionHandler: { (success, errorString) in
                 
+                print("###CHECK 1")
                 if let errorString = errorString {
                     performUIUpdatesOnMain {
-                        self.debugTextLabel.text = errorString
+                        self.debugTextLabel.text = errorString.localizedDescription
+                        print("###CHECK 2")
                         return
                     }
                 }
                 
-                if success {
+                if (success != nil) {
+                    print("###CHECK 3")
                     performUIUpdatesOnMain {
                         self.debugTextLabel.text = "SUCCESS!!"
                         return
                     }
                 }
+                print("###CHECK 4")
+
         })
         
         //print("Login Button Pressed")
